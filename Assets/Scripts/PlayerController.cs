@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    [SerializeField] float PlayerSpeed = 1f;
+    [SerializeField] float playerSpeed = 1f;
+    [SerializeField] int health = 3;
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
 
-	// Use this for initialization
-	void Start () {
+        set
+        {
+            health = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -19,11 +32,20 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * PlayerSpeed * Time.deltaTime);
+            transform.Translate(Vector3.left * playerSpeed * Time.deltaTime);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * PlayerSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * playerSpeed * Time.deltaTime);
         }
     }
+
+    public void DamagePlayer (int damageTaken) {
+        this.Health -= damageTaken;
+    }
+
+    public bool IsAlive() {
+        return this.Health > 0;
+    }
+
 }
