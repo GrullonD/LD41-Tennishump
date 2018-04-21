@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Zombie
   - Ball
+<<<<<<< HEAD
   - Despawner
+=======
+>>>>>>> develop
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Balls
   - 
   - 
   - 

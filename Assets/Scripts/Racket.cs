@@ -14,6 +14,10 @@ public class Racket : MonoBehaviour {
     private Quaternion originalRotation = Quaternion.Euler(0, 0, 0);
     private Quaternion endSwingRotation = Quaternion.Euler(22f, -45f, -30f);
 
+    private Vector3 lastMousePos;
+    private Vector3 mouseDelta;
+    private Vector3 spin = Vector3.zero;
+
     private void Start() {
         Cursor.visible = false;
         print(endSwingRotation);
@@ -36,6 +40,12 @@ public class Racket : MonoBehaviour {
         if (!this.isSwinging && !this.canSwing) {
             this.RotateBack();
         }
+        this.mouseDelta = Input.mousePosition - lastMousePos;
+
+        this.spin.x = this.mouseDelta.x > 0 ? -1 * this.mouseDelta.magnitude * 0.05f : 1 * this.mouseDelta.magnitude * 0.05f;
+        this.spin.y = this.mouseDelta.y > 0 ? -1 * this.mouseDelta.magnitude * 0.05f : 1 * this.mouseDelta.magnitude * 0.05f;
+
+        this.lastMousePos = mousePosition;
 
     }
 
@@ -63,6 +73,16 @@ public class Racket : MonoBehaviour {
     private void ResetSwing() {
         this.canSwing = true;
         this.isSwinging = false;
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Ball") {
+            print("collided with ball");
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            print(rb.velocity);
+            rb.velocity = new Vector3(this.spin.x, this.spin.y, 50f);
+            print(rb.velocity);
+        }
     }
 
 }
