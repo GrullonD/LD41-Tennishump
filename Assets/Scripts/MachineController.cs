@@ -20,6 +20,7 @@ public class MachineController : MonoBehaviour {
     [SerializeField] float ProjectileSpawnTime = 1f;
 
     Transform PlayerTransform;
+    private Vector3 direction = Vector3.zero;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +31,7 @@ public class MachineController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         RotateTowardsPlayer();
+        Debug.DrawLine(ProjectileSpawn.position, direction, Color.red);
     }
 
     IEnumerator ShootTheProjectile()
@@ -52,7 +54,9 @@ public class MachineController : MonoBehaviour {
     private void ShootProjectile()
     {
         Vector3 newDirection = GetPlayerRotationAngle();
-        var projectile = (GameObject)Instantiate(Projectile, ProjectileSpawn.position, Quaternion.LookRotation(newDirection));
+        Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.nearClipPlane));
+        direction = screenPosition - ProjectileSpawn.position;
+        var projectile = (GameObject)Instantiate(Projectile, ProjectileSpawn.position, Quaternion.LookRotation(direction));
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * ProjectileSpeed);
 
         // TODO: Change destruction period
