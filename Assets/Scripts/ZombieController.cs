@@ -19,7 +19,6 @@ public class ZombieController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         PlayerTransform = ZombiesTarget.transform;
-        //ZombiesTarget = GameObject.Find("/Player");
         print(ZombiesTarget);
     }
 	
@@ -29,6 +28,19 @@ public class ZombieController : MonoBehaviour {
         MoveForward();
         //RotateTowardsPlayer();
         //MoveTowardsPlayer();
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            Ball ball = collision.gameObject.GetComponent<Ball>();
+            if (ball.Active)
+            {
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     private void RotateTowardsPlayer() {

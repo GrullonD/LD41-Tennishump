@@ -82,6 +82,9 @@ public class Racket : MonoBehaviour {
             print(rb.velocity);
             rb.velocity = new Vector3(this.spin.x, this.spin.y, 50f);
             print(rb.velocity);
+
+            Ball ball = collision.gameObject.GetComponent<Ball>();
+            ball.Active = true;
         }
     }
 
