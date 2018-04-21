@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1069669893259062}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.7, z: 0.89}
+  m_LocalPosition: {x: 0, y: 0, z: 0.909}
   m_LocalScale: {x: 0.5, y: 0.38269818, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4540147165182020}
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1166331295523864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.7, z: 1.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4540147165182020}
@@ -110,8 +110,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924123897080012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20677203, y: 2.1792207, z: 7.153021}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.513, z: 9.014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4256685847988376}
@@ -119,20 +119,20 @@ Transform:
   - {fileID: 4638610934381410}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4638610934381410
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747906536597532}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -1.68, z: -0.153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4540147165182020}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23722398347079592
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -241,11 +241,11 @@ MonoBehaviour:
   MaxLeftAngle: 0
   MaxRightAngle: 0
   MachineRotationSpeed: 1
-  ProjectileSpeed: 6
+  ProjectileSpeed: 1000
   MachinesTarget: {fileID: 0}
   Projectile: {fileID: 1979205236483574, guid: e6fa651c68394da4b9a6da13fb7746e8, type: 2}
   ProjectileSpawn: {fileID: 4638610934381410}
-  ProjectileSpawnTime: 1
+  ProjectileSpawnTime: 2
 --- !u!136 &136005419833980864
 CapsuleCollider:
   m_ObjectHideFlags: 1

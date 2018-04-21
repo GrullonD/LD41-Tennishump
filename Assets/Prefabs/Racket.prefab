@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389329596593974}
   - component: {fileID: 114128382150394248}
+  - component: {fileID: 65974691148347376}
   m_Layer: 0
   m_Name: Racket
   m_TagString: Untagged
@@ -331,6 +332,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65974691148347376
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824529784458064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.12, z: 0.05}
+  m_Center: {x: 0, y: 0.12, z: 0}
 --- !u!114 &114128382150394248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,7 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingPower: 0
   swingPowerIncrease: 0.1
-  swingSpeed: 20
+  swingSpeed: 30
   canSwing: 1
   isSwinging: 0
   swingReset: 15
