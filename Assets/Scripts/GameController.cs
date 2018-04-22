@@ -9,8 +9,23 @@ public class GameController : MonoBehaviour {
     [SerializeField] PlayerController pc;
     [SerializeField] Racket racket;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] int scoreMultiplier = 100;
 
-	public void RestartGame() {
+    public int score;
+    public int Score
+    {
+        get
+        {
+            return score;
+        }
+
+        set
+        {
+            score = value;
+        }
+    }
+
+    public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -24,5 +39,9 @@ public class GameController : MonoBehaviour {
             this.gameOverScreen.SetActive(true);
             Cursor.visible = true;
         }
+    }
+    
+    public void AddToScore(int score) {
+        this.Score += score * scoreMultiplier;
     }
 }
