@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void RestartGame() {
+	public void RestartGame() {
+        print("restarting");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
