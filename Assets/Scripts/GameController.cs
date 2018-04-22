@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
     [SerializeField] PlayerController pc;
     [SerializeField] Racket racket;
+    [SerializeField] GameObject gameOverScreen;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void RestartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
     public void ZombieReachedEnd() {
         pc.DamagePlayer(1);
@@ -25,6 +21,8 @@ public class GameController : MonoBehaviour {
             // TODO: end game
             Camera.main.gameObject.GetComponent<BlurOptimized>().enabled = true;
             racket.gameObject.SetActive(false);
+            this.gameOverScreen.SetActive(true);
+            Cursor.visible = true;
         }
     }
 }
