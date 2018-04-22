@@ -6,14 +6,18 @@ public class ZombieController : MonoBehaviour {
 
     [SerializeField] float ZombieRotationSpeed = 500f;
     [SerializeField] float WalkingSpeed = 2f;
+    [SerializeField] int scoreValue = 1;
 
     [SerializeField] GameObject ZombiesTarget; // What Zombie will rotate towards
+
+    [SerializeField] GameController gc;
 
     Transform PlayerTransform;
 
     private void Awake()
     {
         ZombiesTarget = GameObject.Find("/Player");
+        gc = GameObject.Find("/GameController").GetComponent<GameController>();
     }
 
     // Use this for initialization
@@ -37,6 +41,7 @@ public class ZombieController : MonoBehaviour {
             Ball ball = collision.gameObject.GetComponent<Ball>();
             if (ball.Active)
             {
+                gc.AddToScore(scoreValue);
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject);
             }
