@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1824529784458064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68013734, y: 0.386, z: 6.438637}
+  m_LocalPosition: {x: -1.9478283, y: 0.010000119, z: -7.2033806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4713395371700046}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipPlaneAdjust: 0.4
-  XHitAngleDampener: 20
+  XHitAngleDampener: 25
   YHitAngleDampener: 20
 --- !u!114 &114459086112708404
 MonoBehaviour:
