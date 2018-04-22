@@ -241,7 +241,7 @@ MonoBehaviour:
   MaxLeftAngle: 0
   MaxRightAngle: 0
   MachineRotationSpeed: 1
-  ProjectileSpeed: 1000
+  ProjectileSpeed: 200
   MachinesTarget: {fileID: 0}
   Projectile: {fileID: 1979205236483574, guid: e6fa651c68394da4b9a6da13fb7746e8, type: 2}
   ProjectileSpawn: {fileID: 4638610934381410}

@@ -18,6 +18,7 @@ public class MachineController : MonoBehaviour {
     [SerializeField] Transform ProjectileSpawn;
 
     [SerializeField] float ProjectileSpawnTime = 1f;
+    [SerializeField] float startDelay = 1f;
 
     Transform PlayerTransform;
     private Vector3 direction = Vector3.zero;
@@ -25,13 +26,17 @@ public class MachineController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         PlayerTransform = MachinesTarget.transform;
-        StartCoroutine(ShootTheProjectile());
+        Invoke("StartShootingRoutine", this.startDelay);
     }
 	
 	// Update is called once per frame
 	void Update () {
         RotateTowardsPlayer();
         Debug.DrawLine(ProjectileSpawn.position, direction, Color.red);
+    }
+
+    private void StartShootingRoutine() {
+        StartCoroutine(ShootTheProjectile());
     }
 
     IEnumerator ShootTheProjectile()
@@ -55,6 +60,7 @@ public class MachineController : MonoBehaviour {
     {
         Vector3 newDirection = GetPlayerRotationAngle();
         Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.nearClipPlane));
+        //Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane));
         direction = screenPosition - ProjectileSpawn.position;
         var projectile = (GameObject)Instantiate(Projectile, ProjectileSpawn.position, Quaternion.LookRotation(direction));
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * ProjectileSpeed);
