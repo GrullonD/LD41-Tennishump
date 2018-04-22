@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33904924754389070}
   - component: {fileID: 65283734829529984}
   - component: {fileID: 23592534944975442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1189092651017476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.74, y: 0.505, z: -9.519}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.8494911, y: -0.8469596, z: -2.6659956}
   m_LocalScale: {x: 0.4861933, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

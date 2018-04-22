@@ -6,7 +6,7 @@ public class Court : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Ball") {
-            print("floor collided with ball");
+
         }
     }
 }
