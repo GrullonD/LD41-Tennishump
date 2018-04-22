@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -10,8 +11,12 @@ public class GameController : MonoBehaviour {
     [SerializeField] Racket racket;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] int scoreMultiplier = 100;
+    [SerializeField] Text scoreText, gameOverScoreText;
+    [SerializeField] GameObject heartContainer, heartPrefab;
+    [SerializeField] Sprite fullHeart, emptyHeart;
+    public List<GameObject> heartContainerHearts;
 
-    public int score;
+    public int score = 0;
     public int Score
     {
         get
@@ -25,13 +30,42 @@ public class GameController : MonoBehaviour {
         }
     }
 
-	public void RestartGame() {
+    private void Awake() {
+        this.scoreText.text = "Score: " + this.Score;
+        this.gameOverScoreText.text = "Score: " + this.Score;
+        CreateHearts();
+    }
+
+    private void CreateHearts() {
+        float offset = 150f;
+        Vector3 position = new Vector3(0, 0, 0);
+        GameObject heart;
+        RectTransform heartTransform;
+        this.heartContainerHearts = new List<GameObject>();
+        for (int i = 0; i < this.pc.Health; i++) {
+            heart = Instantiate(this.heartPrefab, this.heartContainer.transform);
+            heartTransform = heart.GetComponent<RectTransform>();
+            heartTransform.localPosition += position;
+            position.x += offset;
+            heartContainerHearts.Add(heart);
+        }
+    }
+
+    private void UpdateHearts() {
+        if (this.pc.Health >= 0) {
+            GameObject heart = this.heartContainerHearts[this.pc.Health];
+            heart.GetComponent<Image>().overrideSprite = this.emptyHeart;
+        }
+    }
+
+    public void RestartGame() {
         print("restarting");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ZombieReachedEnd() {
         pc.DamagePlayer(1);
+        UpdateHearts();
         if (!pc.IsAlive()) {
             print("Oh no! I is Dead");
             // TODO: end game
@@ -44,5 +78,7 @@ public class GameController : MonoBehaviour {
     
     public void AddToScore(int score) {
         this.Score += score * scoreMultiplier;
+        this.scoreText.text = "Score: " + this.Score;
+        this.gameOverScoreText.text = "Score: " + this.Score;
     }
 }
