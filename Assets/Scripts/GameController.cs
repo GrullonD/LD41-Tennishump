@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     [SerializeField] GameObject gameOverScreen;
 
 	public void RestartGame() {
+        print("restarting");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
