@@ -11,6 +11,10 @@ public class Racket : MonoBehaviour {
 
     [SerializeField] private float clipPlaneAdjust = 1f;
     [SerializeField] private Transform racketPivot;
+
+    [SerializeField] float XHitAngleDampener = 0.15f;
+    [SerializeField] float YHitAngleDampener = 0.05f;
+
     private Quaternion originalRotation = Quaternion.Euler(0, 0, 0);
     private Quaternion endSwingRotation = Quaternion.Euler(22f, -45f, -30f);
 
@@ -42,8 +46,8 @@ public class Racket : MonoBehaviour {
         }
         this.mouseDelta = Input.mousePosition - lastMousePos;
 
-        this.spin.x = this.mouseDelta.x > 0 ? -1 * this.mouseDelta.magnitude * 0.05f : 1 * this.mouseDelta.magnitude * 0.05f;
-        this.spin.y = this.mouseDelta.y > 0 ? -1 * this.mouseDelta.magnitude * 0.05f : 1 * this.mouseDelta.magnitude * 0.05f;
+        this.spin.x = this.mouseDelta.x > 0 ? -1 * this.mouseDelta.magnitude * XHitAngleDampener : 1 * this.mouseDelta.magnitude * XHitAngleDampener;
+        this.spin.y = this.mouseDelta.y > 0 ? -1 * this.mouseDelta.magnitude * YHitAngleDampener : 1 * this.mouseDelta.magnitude * YHitAngleDampener;
 
         this.lastMousePos = mousePosition;
 

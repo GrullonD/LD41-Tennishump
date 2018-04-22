@@ -325,6 +325,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114008921792482746, guid: 47d137ed75f030d478aa09ea0e3cd1b7,
+        type: 2}
+      propertyPath: ZombieSpawnTime
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47d137ed75f030d478aa09ea0e3cd1b7, type: 2}
   m_IsPrefabParent: 0
@@ -462,6 +467,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114128382150394248, guid: 8f182a0ac650b7e41ad7e4f0074cf638,
+        type: 2}
+      propertyPath: HitAngleDampener
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114128382150394248, guid: 8f182a0ac650b7e41ad7e4f0074cf638,
+        type: 2}
+      propertyPath: YHitAngleDampener
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 114128382150394248, guid: 8f182a0ac650b7e41ad7e4f0074cf638,
+        type: 2}
+      propertyPath: XHitAngleDampener
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f182a0ac650b7e41ad7e4f0074cf638, type: 2}
   m_IsPrefabParent: 0
@@ -502,6 +522,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070283621563076, guid: 3b4b8034eb1754c4096741b5aa5c1ca4, type: 2}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179955308965748, guid: 3b4b8034eb1754c4096741b5aa5c1ca4,
+        type: 2}
+      propertyPath: playerSpeed
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
