@@ -153,16 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1958eb38b942114da21dba6fbedef6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingPower: 0
-  swingPowerIncrease: 0.1
-  swingSpeed: 30
-  canSwing: 1
-  isSwinging: 0
-  swingReset: 15
   clipPlaneAdjust: 0.4
-  racketPivot: {fileID: 0}
-  XHitAngleDampener: 0.16
-  YHitAngleDampener: 0.04
+  XHitAngleDampener: 20
+  YHitAngleDampener: 20
 --- !u!114 &114459086112708404
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -168,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569052772227986}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.0189624, y: 0.75308263, z: 3.7861156}
+  m_LocalPosition: {x: -1.9010117, y: 1.31, z: -1.9005859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4867783199935406}
@@ -571,8 +571,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.7343813, y: 2.0643523, z: 1}
+  m_Center: {x: 0.05569929, y: 0.31555378, z: 0}
 --- !u!114 &114733076718227096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,4 +586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ZombieRotationSpeed: 500
   WalkingSpeed: 2
+  scoreValue: 1
   ZombiesTarget: {fileID: 0}
+  gc: {fileID: 0}
