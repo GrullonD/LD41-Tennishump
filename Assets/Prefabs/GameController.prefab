@@ -53,3 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 0}
   racket: {fileID: 0}
+  gameOverScreen: {fileID: 1337493789005956, guid: b2e958ee1d1b4bd49b47ff6449ebcd03,
+    type: 2}
+  scoreMultiplier: 100
+  score: 0
