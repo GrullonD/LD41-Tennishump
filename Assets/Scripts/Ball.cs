@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip ballBounce;
+
     [SerializeField] bool active = false;
     public bool Active
     {
@@ -18,27 +21,12 @@ public class Ball : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Awake() {
+        this.audioSource = GetComponent<AudioSource>();
+    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        switch (other.gameObject.tag)
-        {
-            case "BallPassive":
-                break;
-            case "BallActive":
-                Destroy(this.gameObject);
-                break;
-            default:
-                break;
-        }
+    private void OnCollisionEnter(Collision collision) {
+        this.audioSource.Stop();
+        this.audioSource.PlayOneShot(this.ballBounce);
     }
 }

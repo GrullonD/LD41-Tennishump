@@ -22,6 +22,12 @@ public class MachineController : MonoBehaviour {
 
     Transform PlayerTransform;
     private Vector3 direction = Vector3.zero;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip launchBall;
+
+    private void Awake() {
+        this.audioSource = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     void Start () {
@@ -64,7 +70,8 @@ public class MachineController : MonoBehaviour {
         direction = screenPosition - ProjectileSpawn.position;
         var projectile = (GameObject)Instantiate(Projectile, ProjectileSpawn.position, Quaternion.LookRotation(direction));
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * ProjectileSpeed);
-
+        this.audioSource.Stop();
+        this.audioSource.PlayOneShot(this.launchBall);
         // TODO: Change destruction period
         Destroy(projectile, 20.0f);
     }

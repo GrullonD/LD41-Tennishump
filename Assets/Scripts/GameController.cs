@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour {
     [SerializeField] GameObject heartContainer, heartPrefab;
     [SerializeField] Sprite fullHeart, emptyHeart;
     public List<GameObject> heartContainerHearts;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip zombieEndSound;
+
 
     public int score = 0;
     public int Score
@@ -31,6 +34,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void Awake() {
+        this.audioSource = GetComponent<AudioSource>();
         this.scoreText.text = "Score: " + this.Score;
         this.gameOverScoreText.text = "Score: " + this.Score;
         CreateHearts();
@@ -66,6 +70,8 @@ public class GameController : MonoBehaviour {
     public void ZombieReachedEnd() {
         pc.DamagePlayer(1);
         UpdateHearts();
+        this.audioSource.Stop();
+        this.audioSource.PlayOneShot(this.zombieEndSound);
         if (!pc.IsAlive()) {
             print("Oh no! I is Dead");
             // TODO: end game
