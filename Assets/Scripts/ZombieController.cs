@@ -14,8 +14,13 @@ public class ZombieController : MonoBehaviour {
 
     Transform PlayerTransform;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip zombieDeath;
+    [SerializeField] private GameObject deathEffect;
+
     private void Awake()
     {
+        this.audioSource = GetComponent<AudioSource>();
         ZombiesTarget = GameObject.Find("/Player");
         gc = GameObject.Find("/GameController").GetComponent<GameController>();
     }
@@ -27,23 +32,21 @@ public class ZombieController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
-    {
+	void Update () {
         MoveForward();
-        //RotateTowardsPlayer();
-        //MoveTowardsPlayer();
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Ball")
-        {
+    private void OnTriggerEnter(Collider collision) {
+        if (collision.gameObject.tag == "Ball") {
             Ball ball = collision.gameObject.GetComponent<Ball>();
-            if (ball.Active)
-            {
+            if (ball.Active) {
+                Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
+                this.audioSource.Stop();
+                this.audioSource.PlayOneShot(this.zombieDeath);
+                this.WalkingSpeed = 0;
                 gc.AddToScore(scoreValue);
                 Destroy(collision.gameObject);
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 1f);
             }
         }
     }
