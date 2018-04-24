@@ -47,6 +47,20 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    private int zombiesAlive = 0;
+    public int ZombiesAlive
+    {
+        get
+        {
+            return zombiesAlive;
+        }
+
+        set
+        {
+            zombiesAlive = value;
+        }
+    }
+
     private void Awake() {
         this.audioSource = GetComponent<AudioSource>();
         this.scoreText.text = "Score: " + this.Score;

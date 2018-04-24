@@ -54,6 +54,7 @@ public class ZombieController : MonoBehaviour {
                 this.dead = true;
                 gc.AddToZombieKillCount(1);
                 gc.AddToScore(scoreValue);
+                gc.ZombiesAlive -= 1;
                 Destroy(collision.gameObject);
                 Destroy(this.gameObject, 1f);
             }

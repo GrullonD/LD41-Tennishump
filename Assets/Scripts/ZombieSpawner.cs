@@ -7,7 +7,7 @@ public class ZombieSpawner : MonoBehaviour {
     [SerializeField] GameObject Zombie;
     [SerializeField] GameObject SpawnArea;
     [SerializeField] GameController gc;
-
+    [SerializeField] int maxZombiesAllowed = 4;
     [SerializeField] float ZombieSpawnTime = 2f;
     [SerializeField] float zombieSpawnTimeVariation = 0.25f;
     private float changedZombieSpawnTimeVariation = 1f;
@@ -47,8 +47,12 @@ public class ZombieSpawner : MonoBehaviour {
     {
         while (true)
         {
-            SpawnZombie();
+            if(gc.ZombiesAlive < maxZombiesAllowed)
+            {
+                SpawnZombie();
+            }
             CalculateSpawnTime();
+            print("gc.ZombiesAlive: " + gc.ZombiesAlive);
             yield return new WaitForSeconds(finalZombieSpawnTime);
         }
     }
@@ -58,6 +62,7 @@ public class ZombieSpawner : MonoBehaviour {
                                         0.75f, 
                                         Random.Range(SpawnFL.transform.position.z,SpawnRL.transform.position.z));
         var zombie = (GameObject)Instantiate(Zombie, SpawnPoint, new Quaternion(0f,-180f,0f,0f));
+        gc.ZombiesAlive += 1;
     }
 
     private void CalculateSpawnTime()
