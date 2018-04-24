@@ -98,6 +98,7 @@ public class GameController : MonoBehaviour {
     public void ZombieReachedEnd() {
         pc.DamagePlayer(1);
         UpdateHearts();
+        this.zombiesAlive -= 1;
         this.audioSource.Stop();
         this.audioSource.PlayOneShot(this.zombieEndSound);
         if (!pc.IsAlive()) {
