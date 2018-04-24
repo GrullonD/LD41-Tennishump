@@ -137,15 +137,15 @@ public class GameController : MonoBehaviour {
         }
         else if (ZombieKillCount >= 5 && ZombieKillCount < 8)
         {
-            changedVariation = currentVariation*2;
+            changedVariation = currentVariation * 0.75f;
         }
         else if (ZombieKillCount >= 8 && ZombieKillCount < 10)
         {
-            changedVariation = currentVariation*3;
+            changedVariation = currentVariation* 1.00f;
         }
         else if (ZombieKillCount >= 10)
         {
-            changedVariation = currentVariation*4;
+            changedVariation = currentVariation * 1.25f;
         }
 
         return changedVariation;
