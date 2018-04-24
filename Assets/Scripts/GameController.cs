@@ -102,14 +102,12 @@ public class GameController : MonoBehaviour {
         this.gameOverScoreText.text = "Score: " + this.Score;
     }
 
-    public void AddToZombieKillCount(int killCount)
-    {
+    public void AddToZombieKillCount(int killCount) {
         this.ZombieKillCount += killCount;
         //print("Zombie was killed");
     }
 
-    public float ChangeZombieWalkingVariation(float currentVariation)
-    {
+    public float ChangeZombieWalkingVariation(float currentVariation) {
         float changedVariation = 1;
 
         if(ZombieKillCount < 5) {
@@ -128,5 +126,28 @@ public class GameController : MonoBehaviour {
 
         return changedVariation;
 
+    }
+
+    public float ChangeZombieSpawnTimeVariation(float currentVariation) {
+        float changedVariation = 1;
+
+        if (ZombieKillCount < 5)
+        {
+            changedVariation = 0;
+        }
+        else if (ZombieKillCount >= 5 && ZombieKillCount < 8)
+        {
+            changedVariation = currentVariation*2;
+        }
+        else if (ZombieKillCount >= 8 && ZombieKillCount < 10)
+        {
+            changedVariation = currentVariation*3;
+        }
+        else if (ZombieKillCount >= 10)
+        {
+            changedVariation = currentVariation*4;
+        }
+
+        return changedVariation;
     }
 }
