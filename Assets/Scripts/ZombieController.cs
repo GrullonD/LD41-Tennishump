@@ -10,7 +10,7 @@ public class ZombieController : MonoBehaviour {
     private float changedWalkingSpeedVariation = 1f;
     private float finalWalkingSpeed = 1f;
     [SerializeField] int scoreValue = 1;
-
+    private bool dead = false;
     [SerializeField] GameObject ZombiesTarget; // What Zombie will rotate towards
 
     [SerializeField] GameController gc;
@@ -39,17 +39,19 @@ public class ZombieController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MoveForward();
+        if (!this.dead) {
+            MoveForward();
+        }
     }
 
     private void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.tag == "Ball") {
             Ball ball = collision.gameObject.GetComponent<Ball>();
-            if (ball.Active) {
+            if (ball.Active && !this.dead) {
                 Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
                 this.audioSource.Stop();
                 this.audioSource.PlayOneShot(this.zombieDeath);
-                this.WalkingSpeed = 0;
+                this.dead = true;
                 gc.AddToZombieKillCount(1);
                 gc.AddToScore(scoreValue);
                 Destroy(collision.gameObject);

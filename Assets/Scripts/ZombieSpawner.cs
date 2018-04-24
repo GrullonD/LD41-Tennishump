@@ -21,6 +21,8 @@ public class ZombieSpawner : MonoBehaviour {
 
     Transform SpawnAreaScale;
 
+    [SerializeField] float startDelay = 1f;
+
     private void Awake()
     {
         SpawnFL = GameObject.Find("FrontLeft");
@@ -34,14 +36,13 @@ public class ZombieSpawner : MonoBehaviour {
     // Use this for initialization
     void Start () {
         SpawnAreaScale = SpawnArea.transform;
-        StartCoroutine(SpawnTheZombies());
+        Invoke("StartSpawningRoutine", this.startDelay);
         changedZombieSpawnTimeVariation = zombieSpawnTimeVariation;
     }
-	
-	// Update is called once per frame
-	void Update () {
-    }
 
+    private void StartSpawningRoutine() {
+        StartCoroutine(SpawnTheZombies());
+    }
     IEnumerator SpawnTheZombies()
     {
         while (true)
