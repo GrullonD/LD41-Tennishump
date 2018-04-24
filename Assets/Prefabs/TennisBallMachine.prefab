@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540147165182020}
   - component: {fileID: 114628562078626742}
+  - component: {fileID: 82639832943004798}
   m_Layer: 0
   m_Name: TennisBallMachine
   m_TagString: Untagged
@@ -111,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924123897080012}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.513, z: 9.014}
+  m_LocalPosition: {x: 0, y: 0.513, z: 10.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4256685847988376}
@@ -223,10 +224,90 @@ BoxCollider:
   m_GameObject: {fileID: 1166331295523864}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82639832943004798
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924123897080012}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114628562078626742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,14 +319,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841bd83f3f6e48e4f9a3f7da445ada33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLeftAngle: 0
-  MaxRightAngle: 0
-  MachineRotationSpeed: 1
-  ProjectileSpeed: 200
+  MachineRotationSpeed: 100
+  minSpeed: 150
+  maxSpeed: 175
   MachinesTarget: {fileID: 0}
   Projectile: {fileID: 1979205236483574, guid: e6fa651c68394da4b9a6da13fb7746e8, type: 2}
   ProjectileSpawn: {fileID: 4638610934381410}
-  ProjectileSpawnTime: 2
+  minSpawnTime: 0.9
+  maxSpawnTime: 1.5
+  startDelay: 1
+  launchBall: {fileID: 8300000, guid: d34f90a52f88ff4498ffe99904815d6a, type: 3}
 --- !u!136 &136005419833980864
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -254,7 +337,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1069669893259062}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
