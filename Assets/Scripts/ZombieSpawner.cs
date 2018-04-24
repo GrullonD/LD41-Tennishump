@@ -22,6 +22,8 @@ public class ZombieSpawner : MonoBehaviour {
     Transform SpawnAreaScale;
 
     [SerializeField] float startDelay = 1f;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip zombieAnnounce;
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class ZombieSpawner : MonoBehaviour {
         SpawnRR = GameObject.Find("BackRight");
 
         gc = GameObject.Find("/GameController").GetComponent<GameController>();
+        this.audioSource = GetComponent<AudioSource>();
     }
 
     // Use this for initialization
@@ -41,6 +44,8 @@ public class ZombieSpawner : MonoBehaviour {
     }
 
     private void StartSpawningRoutine() {
+        this.audioSource.Stop();
+        this.audioSource.PlayOneShot(this.zombieAnnounce);
         StartCoroutine(SpawnTheZombies());
     }
     IEnumerator SpawnTheZombies()
